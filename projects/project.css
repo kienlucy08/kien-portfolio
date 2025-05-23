@@ -1,0 +1,430 @@
+:root {
+  --color-bg: #69f7be;
+  --color-text-main: #000000;
+  --color-primary: #ffff00;
+  --wrapper-height: 87vh;
+  --image-max-width: 300px;
+  --image-margin: 3rem;
+  --font-family: "HK Grotesk";
+  --font-family-header: "HK Grotesk";
+}
+
+.rubik-<uniquifier > {
+  font-family: "Rubik", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+.big-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: absolute;
+  font-size: 42px; /* Increases font size */
+  font-weight: bold; /* Makes it bold */
+  font-family: "Rubik", serif;
+  color: white; /* Ensure text is visible */
+  top: 100px;
+  z-index: 10;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.7
+  ); /* Darker background for better visibility */
+  width: 70%;
+  border: 4px solid #fff;
+  border-radius: 20px;
+  padding: 20px 0; /* Increased padding for a taller navbar */
+  backdrop-filter: blur(5px); /* Slight blur for a modern effect */
+}
+
+/* Page structure */
+.wrapper {
+  min-height: var(--wrapper-height);
+  display: grid;
+  place-items: center;
+  margin: 0 1rem;
+}
+
+/* Content section */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  overflow-y: auto; /* Allows scrolling of main content */
+  width: 100%;
+}
+
+/* Add margin to avoid overlapping with the header */
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  gap: 40px; /* Add space to avoid overlap with fixed header */
+  overflow-y: scroll;
+}
+
+/* Zigzag row styles */
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+  position: relative;
+}
+
+.row p {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: black;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 15px;
+  border: 4px solid #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  transform: translateY(-30px); /* Slight upward offset to overlap image */
+}
+
+/* Overlap adjustment for even rows */
+
+.image-container img {
+  display: block;
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease-in-out; /* Smooth transition */
+}
+
+.image-container:hover img {
+  animation: hoverUpDown 1s ease-in-out infinite; /* Repeats animation while hovering */
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 0;
+}
+
+/* Very light scaling for our illustration */
+.title {
+  color: #2800ff;
+  font-family: "Rubik", serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 100px;
+  line-height: 105%;
+  margin: 0;
+}
+
+/* Button - Add it from the README instructions */
+button,
+input {
+  cursor: url("https://cdn.glitch.global/98f4cd17-5742-4db3-b312-f1c978ec4161/click.cur?v=1739733035464"),
+    auto;
+  font-family: inherit;
+  font-size: 100%;
+  font-family: "Rubik", serif;
+  background: #ffffff;
+  border: 4px solid #000000;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  transition: 500ms;
+}
+
+body {
+  cursor: url("https://cdn.glitch.global/98f4cd17-5742-4db3-b312-f1c978ec4161/ColouredAero_arrow.cur?v=1739733034772"),
+    auto;
+  margin: 0;
+  font-family: "Rubik", serif;
+  background: linear-gradient(
+    -45deg,
+    #4b0082,
+    #8a2be2,
+    #ffa500,
+    #8a2be2,
+    #4b0082
+  );
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  color: white;
+  overflow: scroll;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Main heading */
+h1 {
+  font-family: "Rubik", serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-size: 4em;
+  animation: fadeInUp 2s ease-out;
+  z-index: 10;
+  padding: 10px 0;
+  border-radius: 4px solid white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.5); /* Optional: Add background to header */
+  color: white;
+}
+
+/* Subheading */
+h2 {
+  position: fixed; /* Optional, for consistent positioning */
+  color: #ffdeb8;
+  animation: fadeInUp 2s ease-out;
+}
+
+.highlight {
+  color: #946edb;
+}
+
+/*gradient for the text and background*/
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  font-family: "Rubik", serif;
+  color: white;
+  border: none;
+  cursor: pointer;
+  background-color: #7b4dd1;
+  transition: background-color 0.3s;
+}
+.button:hover {
+  cursor: url("https://cdn.glitch.global/98f4cd17-5742-4db3-b312-f1c978ec4161/click.cur?v=1739733035464"),
+    pointer;
+  background-color: #6840b3;
+}
+
+a {
+  color: transparent;
+  background-image: linear-gradient(-45deg, #d0bef7, #ffffff, #150240, #ffffff);
+  background-size: 400% 400%;
+  background-clip: text;
+  font-weight: 400px;
+  background-position: 100% 100%;
+  font-family: "Rubik", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* link hover settings*/
+a:hover {
+  cursor: url("https://cdn.glitch.global/98f4cd17-5742-4db3-b312-f1c978ec4161/click.cur?v=1739733035464"),
+    pointer;
+  color: transparent;
+  background-image: linear-gradient(-45deg, #d0bef7, #ffffff, #150240, #ffffff);
+  background-size: 400% 400%;
+  background-clip: text;
+  font-weight: 400px;
+  background-position: 100% 100%;
+  font-family: "Rubik", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* link hover visited settings*/
+a:visited:hover {
+  cursor: url("https://cdn.glitch.global/98f4cd17-5742-4db3-b312-f1c978ec4161/click.cur?v=1739733035464"),
+    pointer;
+  animation: hoverAnimation 0.5s infinite;
+  color: transparent;
+  background-image: linear-gradient(-45deg, #d0bef7, #e1c6f5, #150240, #e1c6f5);
+  background-size: 400% 400%;
+  background-clip: text;
+  font-weight: 400px;
+  background-position: 100% 100%;
+  font-family: "Rubik", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Keyframes for hover animation */
+@keyframes hoverUpDown {
+  0%,
+  100% {
+    transform: translateY(0); /* Original position */
+  }
+  50% {
+    transform: translateY(5px); /* Moves image up */
+  }
+}
+
+.nav-links {
+  font-family: "Rubik", serif;
+  list-style: none;
+  display: flex;
+  justify-content: flex-end; /* Align to the right */
+  align-items: center; /* Align items vertically */
+  margin: 0;
+  padding: 0 40px; /* Increased padding for more spacing */
+}
+
+.nav-links li {
+  margin-left: 30px; /* Increased spacing between links */
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-family: "Rubik", serif;
+  font-size: 1.3em; /* Increased font size */
+  font-weight: bold; /* Make text more prominent */
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+  cursor: url("https://cdn.glitch.global/98f4cd17-5742-4db3-b312-f1c978ec4161/click.cur?v=1739733035464"),
+    pointer;
+  color: orange;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.7
+  ); /* Darker background for better visibility */
+  padding: 20px 0; /* Increased padding for a taller navbar */
+  backdrop-filter: blur(5px); /* Slight blur for a modern effect */
+}
+
+.title-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/*Animated images */
+@keyframes switchImage {
+  0%,
+  50% {
+    content: url("https://deckard.openprocessing.org/user437739/visual2284279/h18fa8610f8be51666e23052e4ebb43a4/left.png");
+  } /* Hold first image */
+  51%,
+  100% {
+    content: url("https://deckard.openprocessing.org/user437739/visual2284279/h18fa8610f8be51666e23052e4ebb43a4/right.png");
+  } /* Switch to second image */
+}
+
+.margin-image {
+  position: fixed;
+  width: 150px;
+  z-index: 100;
+  animation: switchImage 1s infinite alternate; /* 0.5s delay per image */
+}
+
+/* Left-side images */
+.left-image-1 {
+  left: 10px;
+  top: 10%;
+}
+.left-image-2 {
+  left: 10px;
+  top: 40%;
+}
+.left-image-3 {
+  left: 10px;
+  top: 70%;
+}
+
+/* Right-side images */
+.right-image-1 {
+  right: 10px;
+  top: 10%;
+}
+.right-image-2 {
+  right: 10px;
+  top: 40%;
+}
+.right-image-3 {
+  right: 10px;
+  top: 70%;
+}
+
+/* code container */
+.code-container {
+  border: 4px solid #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 10px;
+  margin-bottom: 100px;
+  width: 70%;
+}
+
+.code-header {
+  background: #333;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: url("https://cdn.glitch.global/98f4cd17-5742-4db3-b312-f1c978ec4161/ColouredAero_arrow.cur?v=1739733034772"),
+    auto;
+}
+
+.code-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background: #000;
+}
+
+pre {
+    margin: 10px;
+    text-align: left;  /* Ensure left alignment */
+    white-space: pre-wrap; /* Allow wrapping */
+    font-family: "Courier New", monospace; /* Code-style font */
+}
+
+.expanded {
+  max-height: 500px;
+  overflow: scroll;
+}
