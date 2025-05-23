@@ -1,0 +1,372 @@
+rubik-<uniquifier> {
+  font-family: "Rubik", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+/* Page structure */
+.wrapper {
+  min-height: var(--wrapper-height);
+  display: grid;
+  place-items: center;
+  margin: 0 1rem;
+  padding-top: 130px; /* Pushes content below navbar */
+}
+
+.content {
+  display: flex;
+  flex-direction: column; /* Makes columns stack vertically */
+  align-items: center; /* Centers items horizontally */
+  gap: 20px; /* Adds spacing between rows */
+  width: 100%;
+}
+
+.big-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: absolute;
+  font-size: 42px; /* Increases font size */
+  font-weight: bold; /* Makes it bold */
+  font-family: "Rubik", serif;
+  color: white; /* Ensure text is visible */
+  top: 100px;
+  z-index: 10;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.7
+  ); /* Darker background for better visibility */
+  width: 70%;
+  border: 10px solid #fff;
+  border-radius: 20px;
+  padding: 20px 0; /* Increased padding for a taller navbar */
+  backdrop-filter: blur(5px); /* Slight blur for a modern effect */
+}
+
+/* column to align things */
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: normal;
+  position: relative;
+  gap: 20px;
+}
+
+/* row to align things*/
+.row {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  gap: 40px;
+}
+
+/* Very light scaling for our illustration */
+.title {
+  color: #2800ff;
+  font-family: "Rubik", serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 100px;
+  line-height: 105%;
+  margin: 0;
+}
+
+/* Very light scaling for our illustration */
+.illustration {
+  max-width: 100%;
+  max-height: var(--image-max-width);
+  margin-top: var(--image-margin);
+}
+
+/* Instructions */
+.instructions {
+  margin: 1rem auto 0;
+}
+
+/* Button - Add it from the README instructions */
+button,
+input {
+  cursor: url("https://cdn.glitch.global/98f4cd17-5742-4db3-b312-f1c978ec4161/click.cur?v=1739733035464"),
+    pointer;
+  font-family: inherit;
+  font-size: 100%;
+  background: #ffffff;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  transition: 500ms;
+}
+
+body {
+  cursor: url("https://cdn.glitch.global/98f4cd17-5742-4db3-b312-f1c978ec4161/ColouredAero_arrow.cur?v=1739733034772"),
+    auto;
+  margin: 0;
+  font-family: "Rubik", serif;
+  background: linear-gradient(
+    -45deg,
+    #4b0082,
+    #8a2be2,
+    #ffa500,
+    #8a2be2,
+    #4b0082
+  );
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  color: white;
+  overflow: scroll;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Main heading */
+h1 {
+  position: relative;
+  font-size: 4em;
+  animation: fadeInUp 2s ease-out;
+}
+
+/* Subheading */
+h2 {
+  position: relative; /* Optional, for consistent positioning */
+  color: #ffdeb8;
+  animation: fadeInUp 2s ease-out;
+}
+
+.highlight {
+  color: #946edb;
+}
+
+/*gradient for the text and background*/
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  color: white;
+  border: none;
+  cursor: pointer;
+  background-color: #7b4dd1;
+  transition: background-color 0.3s;
+}
+.button:hover {
+  cursor: url("https://cdn.glitch.global/98f4cd17-5742-4db3-b312-f1c978ec4161/click.cur?v=1739733035464"),
+    pointer;
+  background-color: #6840b3;
+}
+
+a {
+  color: transparent;
+  background-image: linear-gradient(-45deg, #d0bef7, #ffffff, #150240, #ffffff);
+  background-size: 400% 400%;
+  background-clip: text;
+  font-family: "Rubik", serif;
+  font-weight: 400px;
+  background-position: 100% 100%;
+  font-family: serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* link hover settings*/
+a:hover {
+  cursor: url("https://cdn.glitch.global/98f4cd17-5742-4db3-b312-f1c978ec4161/click.cur?v=1739733035464"),
+    pointer;
+  color: transparent;
+  background-image: linear-gradient(-45deg, #d0bef7, #ffffff, #150240, #ffffff);
+  background-size: 400% 400%;
+  background-clip: text;
+  font-family: "Rubik", serif;
+  font-weight: 400px;
+  background-position: 100% 100%;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* link hover visited settings*/
+a:visited:hover {
+  cursor: url("https://cdn.glitch.global/98f4cd17-5742-4db3-b312-f1c978ec4161/click.cur?v=1739733035464"),
+    pointer;
+  animation: hoverAnimation 0.5s infinite;
+  color: transparent;
+  background-image: linear-gradient(-45deg, #d0bef7, #e1c6f5, #150240, #e1c6f5);
+  background-size: 400% 400%;
+  background-clip: text;
+  font-weight: 400px;
+  background-position: 100% 100%;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.nav-links {
+  font-family: "Rubik", serif;
+  list-style: none;
+  display: flex;
+  justify-content: flex-end; /* Align to the right */
+  align-items: center; /* Align items vertically */
+  margin: 0;
+  padding: 0 40px; /* Increased padding for more spacing */
+}
+
+.nav-links li {
+  margin-left: 30px; /* Increased spacing between links */
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-family: "Rubik", serif;
+  font-size: 1.3em; /* Increased font size */
+  font-weight: bold; /* Make text more prominent */
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+  cursor: url("https://cdn.glitch.global/98f4cd17-5742-4db3-b312-f1c978ec4161/click.cur?v=1739733035464"),
+    pointer;
+  color: orange;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.7
+  ); /* Darker background for better visibility */
+  padding: 20px 0; /* Increased padding for a taller navbar */
+  backdrop-filter: blur(5px); /* Slight blur for a modern effect */
+}
+
+.title-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* title effect */
+.title-effect {
+  display: inline-block;
+  position: relative;
+  font-size: 75px;
+  font-weight: bold;
+  text-align: center;
+  cursor: default;
+  white-space: pre-line; /* Ensures spaces are preserved */
+}
+
+.title-effect span {
+  display: inline-block;
+  transition: transform 0.3s ease-out;
+  margin-right: 20px; /* Add space between letters */
+  cursor: url("https://cdn.glitch.global/98f4cd17-5742-4db3-b312-f1c978ec4161/click.cur?v=1739733035464"), pointer;
+
+}
+
+.title-effect .space {
+  width: 15px; /* Keeps spaces visible */
+  display: inline-block;
+}
+
+.projects-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  background-color: #1a1a1a; /* Dark background */
+  border-radius: 10px;
+  max-width: 80%;
+  margin: 20px auto 0; /* Ensure spacing from navbar */
+  min-height: 250px; /* Prevent collapsing */
+  overflow: hidden; /* Prevents unwanted overflow */
+  position: relative;
+}
+
+.project-scroller {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 15px;
+  padding: 10px;
+  white-space: nowrap;
+  max-width: 100%; /* Adjust based on design */
+  border-radius: 10px;
+}
+
+.project-scroller img {
+  width: 250px; /* Set a uniform width */
+  height: 180px; /* Set a uniform height */
+  object-fit: cover; /* Ensures images fill the space while keeping aspect ratio */
+  border-radius: 8px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+
+.project-scroller img:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+.scroll-button {
+  background-color: rgba(255, 165, 0, 0.7); /* Orange semi-transparent */
+  border: none;
+  color: white;
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  position: absolute;
+}
+
+.scroll-button:hover {
+  background-color: rgba(255, 140, 0, 0.9);
+  transform: scale(1.1);
+  cursor: url("https://cdn.glitch.global/98f4cd17-5742-4db3-b312-f1c978ec4161/click.cur?v=1739733035464"), pointer;
+
+}
+
+.scroll-button.left {
+  left: 10px; /* Move left button inside */
+}
+
+.scroll-button.right {
+  right: 10px; /* Adjust right button */
+}

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Homepage</title>
+    <link rel="stylesheet" href="/projects/project.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/homepage/homepage.html">Home</a></li>
+          <li><a href="/projects/projects.html">Projects</a></li>
+          <li><a href="/homepage/about.html">About Me</a></li>
+          <li><a href="/homepage/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="content">
+      <p class="big-title">Maze Game</p>
+      <div class="container">
+        <img class="margin-image left-image-1" />
+        <img class="margin-image left-image-2" />
+        <img class="margin-image left-image-3" />
+
+        <img class="margin-image right-image-1" />
+        <img class="margin-image right-image-2" />
+        <img class="margin-image right-image-3" />
+
+        <!-- Removed inline style to let CSS handle positioning -->
+        <div class="row">
+          <div class="image-container">
+            <img
+              src="https://cdn.glitch.global/98f4cd17-5742-4db3-b312-f1c978ec4161/Screenshot%202025-01-25%20at%206.53.27%E2%80%AFPM.png?v=1737856413184"
+              alt="Maze Game Intro"
+              style="border: 10px solid #fff; border-radius: 20px"
+            />
+          </div>
+          <p>
+            The <b>'Maze Game'</b> was developed using the ps.play library
+            alongside ps.js, creating a unique and immersive gaming experience.
+            The game is designed to place players in a dark yet escapable
+            environment, simulating the feeling of
+            <b>stress and anxiety</b> about the unknown. It captures the tension
+            of fearing what lurks in the darkness, only to reveal that, most of
+            the time, nothing can or will harm you. The overarching message is
+            that <b>we often overthink small anxious moments</b>, making them
+            feel more threatening than they truly are.
+          </p>
+        </div>
+
+        <div class="row">
+          <p>
+            This video showcases a <b>gameplay run-through</b>, highlighting the
+            immersive atmosphere created for the player. Upon finding the door,
+            the player is prompted to locate a key—unless they have already
+            discovered it. Throughout the maze, they will encounter
+            <b
+              >'ghosts,' symbolizing the fear of the unknown and what lurks in
+              the dark</b
+            >. The sound design blends <b>eerie dungeon crawler</b> audio,
+            footsteps, and a subtle heartbeat, all of which intensify as the
+            player becomes more stressed or approaches a 'ghost.'
+          </p>
+
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/6Y2goRtX1FA?si=CPTU592Gv1Ns5wJ9"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            style="
+              border: 10px solid #fff;
+              border-radius: 20px;
+              display: block;
+              margin: 20px auto;
+              cursor: url('https://cdn.glitch.global/98f4cd17-5742-4db3-b312-f1c978ec4161/click.cur?v=1739733035464'),
+                pointer;
+            "
+          ></iframe>
+        </div>
+
+        <div class="code-container">
+          <div class="code-header" onclick="toggleCode()">
+            <span>View p5.js Code</span>
+            <button class="copy-button" onclick="copyCode(event)">
+              Expand
+            </button>
+          </div>
+          <div class="code-content" id="codeBlock">
+            <pre><code class="language-javascript" id="codeSnippet">
+hello
+            </code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.js"></script>
+    <script>
+      let lastScrollTop = 0;
+      const header = document.querySelector("header");
+
+      window.addEventListener("scroll", function () {
+        let scrollTop = window.scrollY;
+
+        if (scrollTop > lastScrollTop) {
+          // Scrolling Down → Hide Header
+          header.style.transform = "translateY(-100%)";
+        } else {
+          // Scrolling Up → Show Header
+          header.style.transform = "translateY(0)";
+        }
+
+        lastScrollTop = scrollTop;
+      });
+      function toggleCode() {
+        const codeBlock = document.getElementById("codeBlock");
+        const icon = document.getElementById("toggle-icon");
+        if (codeBlock.classList.contains("expanded")) {
+          codeBlock.classList.remove("expanded");
+          icon.textContent = "▼";
+        } else {
+          codeBlock.classList.add("expanded");
+          icon.textContent = "▲";
+        }
+      }
+    </script>
+  </body>
+</html>
