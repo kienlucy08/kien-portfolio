@@ -3,69 +3,80 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
     <title>Homepage</title>
-    <!-- The website stylesheet -->
-    <link rel="stylesheet" href="index-style.css" />
+    <!-- The website stylesheet - use relative path -->
+    <link rel="stylesheet" href="./homepage-style.css" />
   </head>
   <body>
     <header>
       <nav>
         <ul class="nav-links">
-          <li><a href="/homepage/homepage.html">Home</a></li>
-          <li><a href="/projects/projects.html">Projects</a></li>
-          <li><a href="/homepage/about.html">About Me</a></li>
-          <li><a href="/homepage/contact.html">Contact</a></li>
+          <li><a href="./homepage.html">Home</a></li>
+          <li><a href="../projects/projects.html">Projects</a></li>
+          <li><a href="./about.html">About Me</a></li>
+          <li><a href="./contact.html">Contact</a></li>
         </ul>
       </nav>
     </header>
     <div class="wrapper">
       <div class="content">
         <div class="title-section">
-          <h1>Hello, my name is Lucy Kien</h1>
+          <h1 class="title-effect">Hello, my name is Lucy Kien</h1>
           <h2>I am a coder, designer, and artist</h2>
         </div>
-        <section class="projects-section">
-          <button class="scroll-button left" onclick="scrollLeft()">
-            &#9664;
-          </button>
-          <div class="project-scroller">
-            <img
-              src="https://cdn.glitch.global/98f4cd17-5742-4db3-b312-f1c978ec4161/Screenshot%202024-08-06%20at%205.01.40%E2%80%AFPM.png?v=1722985306407"
-              alt="Project 1"
-            />
-            <img
-              src="https://cdn.glitch.global/98f4cd17-5742-4db3-b312-f1c978ec4161/Screenshot%202024-08-06%20at%205.02.13%E2%80%AFPM.png?v=1722985338935"
-              alt="Project 2"
-            />
-            <img
-              src="https://cdn.glitch.global/98f4cd17-5742-4db3-b312-f1c978ec4161/Screenshot%202024-08-06%20at%205.40.52%E2%80%AFPM.png?v=1722987656118"
-              alt="Project 3"
-            />
-            <img
-              src="https://cdn.glitch.global/98f4cd17-5742-4db3-b312-f1c978ec4161/Screenshot%202024-08-06%20at%205.40.52%E2%80%AFPM.png?v=1722987656118"
-              alt="Project 4"
-            />
-            <img
-              src="https://cdn.glitch.global/98f4cd17-5742-4db3-b312-f1c978ec4161/Screenshot%202024-08-06%20at%205.40.52%E2%80%AFPM.png?v=1722987656118"
-              alt="Project 5"
-            />
-            <!-- Add more images as needed -->
-          </div>
-          <button class="scroll-button right" onclick="scrollRight()">
-            &#9654;
-          </button>
-        </section>
       </div>
     </div>
-
     <script>
-      const scroller = document.querySelector(".project-scroller");
-      function scrollLeft() {
-        scroller.scrollBy({ left: -200, behavior: "smooth" });
-      }
-      function scrollRight() {
-        scroller.scrollBy({ left: 200, behavior: "smooth" });
-      }
+      document.addEventListener("DOMContentLoaded", function () {
+        const title = document.querySelector(".title-effect");
+        const text = title.innerText;
+        title.innerHTML = ""; // Clear the text
+        
+        // Wrap each letter in a <span>
+        text.split("").forEach((letter) => {
+          const span = document.createElement("span");
+          if (letter === " ") {
+            span.innerHTML = "&nbsp;";
+            span.classList.add("space");
+          } else {
+            span.innerText = letter;
+          }
+          span.style.display = "inline-block";
+          span.style.transition = "transform 0.3s ease-out";
+          title.appendChild(span);
+        });
+        
+        title.style.cursor =
+          "url('https://cdn.glitch.global/98f4cd17-5742-4db3-b312-f1c978ec4161/ColouredAero_arrow.cur?v=1739733034772'), auto";
+        
+        title.addEventListener("mousemove", function (e) {
+          document.querySelectorAll(".title-effect span").forEach((span) => {
+            const rect = span.getBoundingClientRect();
+            const offsetX = e.clientX - (rect.left + rect.width / 2);
+            const offsetY = e.clientY - (rect.top + rect.height / 2);
+            const distance = Math.sqrt(offsetX ** 2 + offsetY ** 2);
+            
+            // Move each letter away from the cursor
+            const moveX = (offsetX / distance) * 30;
+            const moveY = (offsetY / distance) * 30;
+            
+            span.style.transform = `translate(${moveX}px, ${moveY}px)`;
+          });
+        });
+        
+        // Reset letters when mouse leaves
+        title.addEventListener("mouseleave", function () {
+          document.querySelectorAll(".title-effect span").forEach((span) => {
+            span.style.transform = "translate(0, 0)";
+          });
+        });
+      });
     </script>
   </body>
 </html>
