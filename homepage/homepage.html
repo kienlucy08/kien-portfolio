@@ -10,7 +10,7 @@
       rel="stylesheet"
     />
     <title>Homepage</title>
-    <!-- The website stylesheet -->
+    <!-- The website stylesheet - use relative path -->
     <link rel="stylesheet" href="./index-style.css" />
   </head>
   <body>
@@ -36,29 +36,40 @@
       document.addEventListener("DOMContentLoaded", function () {
         const title = document.querySelector(".title-effect");
         const text = title.innerText;
-        title.innerHTML = " "; // Clear the text
-        // Wrap each letter in a <span>
-        text.split(" ").forEach((letter) => {
+        title.innerHTML = ""; // Clear the text
+        
+        // Wrap each character (including spaces) in a <span>
+        text.split("").forEach((letter) => {
           const span = document.createElement("span");
-          span.innerText = letter;
+          if (letter === " ") {
+            span.innerHTML = "&nbsp;";
+            span.classList.add("space");
+          } else {
+            span.innerText = letter;
+          }
           span.style.display = "inline-block";
           span.style.transition = "transform 0.3s ease-out";
           title.appendChild(span);
         });
+        
         title.style.cursor =
           "url('https://cdn.glitch.global/98f4cd17-5742-4db3-b312-f1c978ec4161/ColouredAero_arrow.cur?v=1739733034772'), auto";
+        
         title.addEventListener("mousemove", function (e) {
           document.querySelectorAll(".title-effect span").forEach((span) => {
             const rect = span.getBoundingClientRect();
             const offsetX = e.clientX - (rect.left + rect.width / 2);
             const offsetY = e.clientY - (rect.top + rect.height / 2);
             const distance = Math.sqrt(offsetX ** 2 + offsetY ** 2);
+            
             // Move each letter away from the cursor
-            const moveX = (offsetX / distance) * 30; // Adjusts distance moved
+            const moveX = (offsetX / distance) * 30;
             const moveY = (offsetY / distance) * 30;
+            
             span.style.transform = `translate(${moveX}px, ${moveY}px)`;
           });
         });
+        
         // Reset letters when mouse leaves
         title.addEventListener("mouseleave", function () {
           document.querySelectorAll(".title-effect span").forEach((span) => {
